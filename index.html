@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>biginteger</title>
+
+        <meta charset="utf-8" />
+
+        <meta name="description" content="java biginteger" />
+        <meta name="keywords" content="aqoleg java biginteger" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#FFFFFF" />
+
+        <link rel="icon" href="https://aqoleg.com/icon.png" />
+        <style>
+            body {
+                margin: 32px auto;
+                width: 90%;
+                max-width: 1000px;
+                font-family: monospace;
+                overflow-wrap: break-word;
+            }
+            .code {
+                margin: 16px;
+                padding: 4px;
+                background: #F0F0F0;
+            }
+            a {
+                color: black;
+                outline: 0;
+            }
+            a:focus {
+                color: blue;
+            }
+            @media (hover: hover) {
+                a:hover {
+                    color: blue;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>biginteger</h1>
+        <p><a target="_blank" rel="noopener" href="https://aqoleg.com">My</a> first code.
+            Just pure math and java. The numbers are represented as a bit (boolean) array,
+            they can be very big, but it works quite slowly.
+            Operations: string parsing, parsing of the big/little endian byte array, addition, subtraction,
+            multiplication, division with remainder, bit shift, square root, least common multiple,
+            modulus power and inverse, primality test.</p>
+        <h2>build</h2>
+        <p>Create source and output directories.</p>
+        <p class="code">$ mkdir -p src/com/aqoleg out</p>
+        <p>Download the package:
+            <a target="_blank" rel="noopener"
+               href="https://biginteger.aqoleg.com/src/com/aqoleg/BigInteger.java">BigInteger.java</a>.</p>
+        <p class="code">$ wget -O src/com/aqoleg/BigInteger.java
+            biginteger.aqoleg.com/src/com/aqoleg/BigInteger.java</p>
+        <p>Compile.</p>
+        <p class="code">$ javac -d out src/com/aqoleg/BigInteger.java</p>
+        <p>Create jar file.</p>
+        <p class="code">$ cd out<br />$ jar cf ../BigInteger.jar ./<br />$ cd ../</p>
+        <p>Directories <em>out</em>, <em>src</em> and file <em>BigInteger.jar</em> will remain after all.</p>
+        <h2>test</h2>
+        <p>Build the jar file as described above, or download
+            <a target="_blank" rel="noopener"
+               href="https://biginteger.aqoleg.com/BigInteger.jar">BigInteger.jar</a>.</p>
+        <p class="code">$ wget biginteger.aqoleg.com/BigInteger.jar</p>
+        <p>Create test and output directories.</p>
+        <p class="code">$ mkdir -p test/com/aqoleg out</p>
+        <p>Download the test package:
+            <a target="_blank" rel="noopener"
+               href="https://biginteger.aqoleg.com/test/com/aqoleg/BigIntegerTest.java">
+                BigIntegerTest.java</a>.</p>
+        <p class="code">$ wget -O test/com/aqoleg/BigIntegerTest.java
+            biginteger.aqoleg.com/test/com/aqoleg/BigIntegerTest.java</p>
+        <p>Compile.</p>
+        <p class="code">$ javac -d out -cp BigInteger.jar test/com/aqoleg/BigIntegerTest.java</p>
+        <p>Run and read results.</p>
+        <p class="code">$ java -cp out:BigInteger.jar com.aqoleg.BigIntegerTest</p>
+        <p>Directories <em>out</em>, <em>test</em> and file <em>BigInteger.jar</em>
+            will remain after all.</p>
+        <h2>use</h2>
+        <p>Build the jar file as described above, or download
+            <a target="_blank" rel="noopener"
+               href="https://biginteger.aqoleg.com/BigInteger.jar">BigInteger.jar</a>.</p>
+        <p class="code">$ wget biginteger.aqoleg.com/BigInteger.jar</p>
+        <p>Create example.</p>
+        <p class="code">$ cat > Example.java</p>
+        <p>Copy-paste this example, then press <b>ctrl</b> + <b>D</b>.</p>
+        <p class="code">import com.aqoleg.BigInteger;<br />
+            public class Example {<br />
+            &nbsp; public static void main(String args[]) {<br />
+            &nbsp; &nbsp; BigInteger a = BigInteger.parse("0x8236639764796396343434547657387482748");<br />
+            &nbsp; &nbsp; a = a.add(BigInteger.parse("0x3083758048578475878758390893859385"));<br />
+            &nbsp; &nbsp; System.out.println(a.isqrt().toHexString(true));<br />
+            &nbsp; }<br />
+            }</p>
+        <p>Compile.</p>
+        <p class="code">$ javac -cp BigInteger.jar Example.java</p>
+        <p>Run and read result 0x02DA576DF359FE4B1083.</p>
+        <p class="code">$ java -cp .:BigInteger.jar Example</p>
+        <p>Files <em>Example.class</em>, <em>Example.java</em>, <em>BigInteger.jar</em>
+            will remain after all.</p>
+        <h2>one more example</h2>
+        <p>Create source and output directories.</p>
+        <p class="code">$ mkdir -p src/com/aqoleg out</p>
+        <p>Download the package:
+            <a target="_blank" rel="noopener"
+               href="https://biginteger.aqoleg.com/src/com/aqoleg/BigInteger.java">BigInteger.java</a>.</p>
+        <p class="code">$ wget -O src/com/aqoleg/BigInteger.java
+            biginteger.aqoleg.com/src/com/aqoleg/BigInteger.java</p>
+        <p>Download the example:
+            <a target="_blank" rel="noopener"
+               href="https://biginteger.aqoleg.com/src/Example.java">
+                Example.java</a>.</p>
+        <p class="code">$ wget -O src/Example.java
+            biginteger.aqoleg.com/src/Example.java</p>
+        <p>Compile.</p>
+        <p class="code">$ javac -d out -cp src src/Example.java</p>
+        <p>Create jar file.</p>
+        <p class="code">$ cd out<br />$ jar cfe ../Example.jar Example ./<br />$ cd ../</p>
+        <p>Run and read results 0xF234FF3532454A888666873B, 0x23345353424FF3532445EDDD0268,
+            0x014B3AD3EE1D66368E94733D03168357D088, 0xB8FA53E555152FB27F5328.</p>
+        <p class="code">$ java -jar Example.jar 0xF234FF353244535397788734 add 0xF734EEEE0007<br />
+            $ java -jar Example.jar 0x23345353424FF3532445FFFFFF34 sub 0x1222FCCC<br />
+            $ java -jar Example.jar 0x12434FFFDCDD788734 mul 0x122300000877878AAA<br />
+            $ java -jar Example.jar 0x197AA243555344BBCDEFFEDCC345 div 0x2342FF<br /></p>
+        <p>Directories <em>out</em>, <em>src</em> and file <em>Example.jar</em> will remain after all.</p>
+        <script>
+            window.onload = function () {
+                var language = null;
+                if (typeof navigator.language === 'string') {
+                    language = navigator.language.substr(0, 2);
+                }
+                fetch('https://aqoleg.com/log', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        user: 'biginteger',
+                        language: language,
+                        timeZone: new Date().getTimezoneOffset() / (-60)
+                    })
+                }).catch(console.error);
+            };
+        </script>
+    </body>
+</html>
